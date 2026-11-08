@@ -19,7 +19,7 @@ function setupVyloSheet() {
   if(!sheet.getFilter())sheet.getRange(1,1,sheet.getMaxRows(),20).createFilter();
   let ledger=book.getSheetByName('Payments');if(!ledger){ledger=book.insertSheet('Payments');ledger.appendRow(['التاريخ','رقم الطلب','معرف العملية','المدفوع السابق','المدفوع الجديد']);ledger.setFrozenRows(1);ledger.getRange('A1:E1').setBackground('#5B16A6').setFontColor('white').setFontWeight('bold');ledger.setColumnWidths(1,5,180);}
 }
-function doPost(e){
+function signedVyloPost_(e){
   const lock=LockService.getScriptLock();
   try{
     const envelope=JSON.parse(e.postData.contents);
