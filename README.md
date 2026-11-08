@@ -2,7 +2,7 @@
 
 ## الموقع المنشور والربط المجاني الحالي
 
-[افتح VYLO](https://ahmednasser667748-cyber.github.io/VYLO-landing/).
+[افتح VYLO](https://vylo-color-book.github.io/).
 
 الواجهة منشورة على GitHub Pages. `public/bridge.js` يرسل الفورم مباشرة إلى Google Apps Script ويقبل إيصالًا من نطاق جوجل مطابقًا لرقم المحاولة قبل التحويل إلى واتساب. لا يحتاج هذا المسار إلى خادم Node أو Render. النسخة السابقة من خادم Node محفوظة كخيار استضافة بديل.
 
@@ -83,7 +83,7 @@ node --env-file=.env server.mjs
 
 ## GitHub والاستضافة
 
-مستودع المشروع: [VYLO-landing](https://github.com/ahmednasser667748-cyber/VYLO-landing). مجلد `public` مناسب لاستضافة الواجهة، ومنها GitHub Pages. خادم Node والبوت يحتاجان استضافة خلفية دائمة؛ GitHub Pages لا يشغّل السيرفر أو يحتفظ بمفتاح البوت. عند فصل الواجهة، اضبط `apiBase` في `public/config.js` و`ALLOWED_ORIGIN` على الخادم. رفع المصدر إلى GitHub وحده لا ينشر خدمة استقبال الطلبات.
+مستودع المشروع: [VYLO-landing](https://github.com/vylo-color-Book/vylo-color-book.github.io). مجلد `public` مناسب لاستضافة الواجهة، ومنها GitHub Pages. خادم Node والبوت يحتاجان استضافة خلفية دائمة؛ GitHub Pages لا يشغّل السيرفر أو يحتفظ بمفتاح البوت. عند فصل الواجهة، اضبط `apiBase` في `public/config.js` و`ALLOWED_ORIGIN` على الخادم. رفع المصدر إلى GitHub وحده لا ينشر خدمة استقبال الطلبات.
 
 المفتاح الذي أُرسل في المحادثة غير مضمن في ملفات المشروع. لم تتم إضافة Facebook Pixel بعد. الحدث `vylo:order-created` موجود لربط حدث Lead لاحقًا؛ لا يُرسل Purchase قبل دفع فعلي.
 

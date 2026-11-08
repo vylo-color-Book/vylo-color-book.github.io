@@ -38,7 +38,7 @@ export function orderMessage(order, id, test = false, paid = null) {
 }
 export function receipt(order, id) {
   const children = order.children.map((n,i)=>`${PACKAGES[order.packageId].children[i]}: ${n}`).join('\n');
-  const text = `أهلًا VYLO 🎨\nسجّلت طلب وعايز أكمل التفاصيل.\nرقم الطلب: ${id}\n\nاسم ولي الأمر: ${order.parentName}\n${children}\nالتليفون: ${order.phone}\nالمحافظة: ${order.governorate}\nالعنوان: ${order.address}\nالباقة: ${order.packageLabel}\nالكتب: ${order.price} جنيه\nالشحن: ${order.shipping} جنيه\nالإجمالي: ${order.total} جنيه\nالديبوزيت: ${order.deposit} جنيه من الإجمالي، لسه ما اتحوّلش\nالباقي بعد تحويله: ${order.remaining} جنيه\n${order.notes ? 'ملاحظاتي: '+order.notes+'\n' : ''}\nجاهز أبعت صور الطفل وأعرف تفاصيل تحويل الديبوزيت.`;
+  const text = `أهلًا، سجّلت طلب جديد من VYLO!\n\n📌 *بيانات الطلب:*\n- *رقم الطلب:* ${id}\n- *اسم ولي الأمر:* ${order.parentName}\n${children}\n- *الموبايل:* ${order.phone}\n- *المحافظة:* ${order.governorate}\n- *العنوان:* ${order.address}\n- *الباقة المطلوبة:* ${order.packageLabel}\n- *قيمة الكتب:* ${order.price} جنيه\n- *الشحن:* ${order.shipping} جنيه\n- *الإجمالي:* ${order.total} جنيه\n${order.notes ? '\nملاحظاتي: '+order.notes+'\n' : ''}\nمستعد لإرسال صور الطفل وتحويل الديبوزيت.`;
   return {ok:true,orderId:id,total:order.total,deposit:order.deposit,remaining:order.remaining,whatsappUrl:`https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`};
 }
 export async function sendTelegram(config, order, id, fetcher = fetch) {
