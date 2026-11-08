@@ -31,7 +31,8 @@ test('reject missing child names, malformed names, invalid packages and governor
 test('WhatsApp receipt has the correct destination, order ID and unpaid deposit',()=>{
   const r=receipt(validateOrder(sample('bundle')),'VY-TEST');const u=new URL(r.whatsappUrl);
   assert.equal(u.host,'wa.me');assert.equal(u.pathname,'/201270366874');
-  const text=u.searchParams.get('text');for(const s of ['VY-TEST','768','668','طفل هدية','لسه ما اتحوّلش'])assert.ok(text.includes(s));
+  const text=u.searchParams.get('text');for(const s of ['VY-TEST','768','طفل هدية','مستعد لإرسال صور الطفل وتحويل الديبوزيت.'])assert.ok(text.includes(s));
+  assert.doesNotMatch(text,/ديبوزيت[^\n]*100|100[^\n]*ديبوزيت/);assert.ok(!text.includes('لسه ما اتحوّلش'));
 });
 test('successful request reaches configured Telegram destination once, retry returns same receipt',async t=>{
   let calls=0;let sent;
