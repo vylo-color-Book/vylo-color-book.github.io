@@ -1,3 +1,4 @@
+import { submitSheetOrder } from './bridge.js';
 import { PACKAGES, SHIPPING, DEPOSIT, GOVERNORATES, normalizePhone } from './catalog.js?v=4';
 
 const form = document.querySelector('#order-form');
@@ -60,7 +61,7 @@ form.addEventListener('submit', async e => {
   submit.querySelector('span').textContent = 'ثواني… بنسجّل طلبك';
   setStatus('');
   try {
-    const response = await fetch((window.VYLO_CONFIG?.apiBase || '').replace(/\/$/,'') + '/api/orders', {
+    const response = window.VYLO_CONFIG?.sheetsEndpoint ? await submitSheetOrder(window.VYLO_CONFIG.sheetsEndpoint,payload,requestKey) : await fetch((window.VYLO_CONFIG?.apiBase || '').replace(/\/$/,'') + '/api/orders', {
       method:'POST',headers:{'Content-Type':'application/json','Idempotency-Key':requestKey},
       body:JSON.stringify(payload),signal:AbortSignal.timeout(65000)
     });
