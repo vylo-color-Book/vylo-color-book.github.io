@@ -71,12 +71,12 @@ form.addEventListener('submit', async e => {
     const wa = new URL(result.whatsappUrl);
     if (wa.protocol !== 'https:' || wa.hostname !== 'wa.me' || wa.pathname !== '/201270366874') throw new Error('تعذر فتح رابط المتابعة. تواصل مع الصفحة.');
     completed = true;
-    setStatus(`طلبك ${result.orderId} وصل! بنفتح واتساب عشان نكمّل الصور والديبوزيت.`, true);
+    setStatus(`طلبك ${result.orderId} وصل! بنفتح واتساب عشان تبعت صور الطفل.`, true);
     document.querySelector('#continue-whatsapp').href = wa.href;
     document.querySelector('#order-success').hidden = false; submit.hidden = true;
     // This is a lead. Payment has not happened and must not trigger a Purchase event.
     window.dispatchEvent(new CustomEvent('vylo:order-created',{detail:{orderId:result.orderId,value:result.total,currency:'EGP'}}));
-    setTimeout(() => { window.location.assign(wa.href); }, 1000);
+    window.location.href = wa.href;
   } catch (error) {
     setStatus(error.name === 'TimeoutError' || error.name === 'AbortError' ? 'الاتصال اتأخر. جرّب نفس الطلب تاني؛ هنراجع رقم المحاولة لتجنب تكراره.' : error instanceof TypeError ? 'تعذر الاتصال بخدمة الطلبات. بياناتك لسه موجودة؛ جرّب تاني أو كلّمنا على واتساب.' : error.message);
     status.focus();
