@@ -10,9 +10,31 @@
   <link rel="preload" href="assets/personalized.jpg" as="image">
   <link rel="stylesheet" href="styles.css?v=5">
   <script src="config.js" defer></script>
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){
+    n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2260775127800488');
+    fbq('track', 'PageView');
+
+    const trackedVyloOrders = new Set();
+    window.addEventListener('vylo:order-created', ({detail}) => {
+      const {orderId, value, currency} = detail;
+      if (!orderId || !Number.isFinite(value) || trackedVyloOrders.has(orderId)) return;
+      trackedVyloOrders.add(orderId);
+      fbq('track', 'Purchase', {value, currency}, {eventID: orderId});
+    });
+  </script>
   <script src="app.js?v=6" type="module"></script>
 </head>
 <body>
+  <noscript><img height="1" width="1" style="display:none" alt=""
+    src="https://www.facebook.com/tr?id=2260775127800488&amp;ev=PageView&amp;noscript=1"></noscript>
   <a class="skip" href="#main">انتقل للمحتوى</a>
   <div class="announcement">هديّة تكمل الحكاية <span>✦</span> مع كل كتابين 24 صفحة، كتاب 24 صفحة هدية</div>
   <header class="site-header">
