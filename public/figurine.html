@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#5b16a6">
+  <meta name="description" content="مجسّم شخصي من VYLO مستوحى من ملامحك والحلم اللي بتحبّه.">
+  <title>VYLO | مجسّم شخصي يحكي حكايتك</title>
+  <link rel="icon" href="assets/logo.jpg" type="image/jpeg">
+  <link rel="stylesheet" href="styles.css?v=5">
+  <script src="config.js" defer></script>
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){
+    n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2260775127800488');
+    fbq('track', 'PageView');
+
+    const trackedVyloOrders = new Set();
+    window.addEventListener('vylo:order-created', ({detail}) => {
+      const {orderId, value, currency} = detail;
+      if (!orderId || !Number.isFinite(value) || trackedVyloOrders.has(orderId)) return;
+      trackedVyloOrders.add(orderId);
+      fbq('track', 'Purchase', {value, currency}, {eventID: orderId});
+    });
+  </script>
+  <style>
+    .figurine-preview{display:block;width:100%;aspect-ratio:1;object-fit:contain;background:#1e0c31;border-radius:10px}
+    .figurine-page .package-grid{max-width:550px;grid-template-columns:1fr;margin-inline:auto}
+    .figurine-page .form-packages{grid-template-columns:1fr}
+    .figurine-page .video-card video{aspect-ratio:4/5;object-fit:contain;background:#1e0c31;max-height:620px}
+    .figurine-page .order-intro .deposit-note{margin-top:24px}
+  </style>
+  <script src="figurine.js?v=1" type="module"></script>
+</head>
+<body class="figurine-page">
+  <noscript><img height="1" width="1" style="display:none" alt=""
+    src="https://www.facebook.com/tr?id=2260775127800488&amp;ev=PageView&amp;noscript=1"></noscript>
+  <a class="skip" href="#main">انتقل للمحتوى</a>
+  <div class="announcement">مجسّم شخصي من VYLO <span>✦</span> هدية بتحكي حكاية صاحبها</div>
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#" aria-label="VYLO الصفحة الرئيسية"><img src="assets/logo.jpg" width="58" height="58" alt="شعار VYLO"><span><b dir="ltr">VYLO</b><small dir="ltr">YOUR STORY. YOUR WORLD.</small></span></a>
+      <nav aria-label="القائمة الرئيسية"><a href="#story">حكاية المجسّم</a><a href="#inside">شوف الفيديو</a><a href="#packages">السعر</a></nav>
+      <a class="button small" href="#order">اطلب مجسّمك <span aria-hidden="true">↙</span></a>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-copy"><p class="eyebrow"><span class="tiny-star">✦</span> مجسّم شخصي من VYLO</p>
+      <h1>شوف نفسك<br><span>جوّه حلمك.</span></h1>
+      <p class="hero-description">تخيّل مجسّم مستوحى من ملامحك، في الدور اللي بتحبه. خليه على مكتبك، أو اهديه لحد عزيز عليك كتذكار يحكي حكايته.</p>
+      <div class="hero-actions"><a class="button yellow" href="#order">اطلب مجسّمك ↙</a><a class="text-link" href="#inside"><span class="play-mini">▶</span> شوف الفيديو</a></div>
+      <div class="hero-meta"><span>✧ بيتعمل حسب الطلب</span><span>✧ مستوحى من صورتك</span><span>✧ شحن لكل مصر</span></div>
+    </div>
+    <div class="hero-art"><span class="orbit" aria-hidden="true"></span><span class="doodle star-one" aria-hidden="true">✦</span>
+      <figure class="hero-photo"><video class="figurine-preview" src="figurine.mp4" muted playsinline autoplay loop preload="metadata" aria-label="معاينة مجسّم شخصي من VYLO"></video><figcaption><span class="round-star" aria-hidden="true">★</span><span>مجسّم معمول ليك</span></figcaption></figure>
+    </div>
+  </div>
+</section>
+<section class="section story" id="story"><div class="container story-grid">
+  <div class="story-picture"><video class="figurine-preview" src="figurine.mp4#t=3" controls playsinline preload="metadata" aria-label="لقطة من ريل المجسّم"></video></div>
+  <div class="story-copy"><p class="eyebrow purple">من صورتك لفكرة تخصّك</p><h2>مجسّم يفتّكرك باللي بتحبّه.</h2>
+    <p class="section-intro">اختار الدور أو الفكرة اللي نفسك تشوفها في المجسّم، وابعت صورة واضحة بعد الطلب. نراجع معاك التفاصيل على واتساب قبل التجهيز.</p>
+    <div class="reason"><h3>هدية باسم صاحبها</h3><p>ممكن تطلب المجسّم ليك أو لحد عزيز عليك، وتكتب فكرته في ملاحظات الطلب.</p></div>
+  </div>
+</div></section>
+<section class="section inside" id="inside"><div class="container">
+  <div class="section-heading"><div><p class="eyebrow purple">من صفحة VYLO</p><h2>شوف المجسّم في الفيديو.</h2></div></div>
+  <figure class="video-card"><video id="product-video" src="figurine.mp4" controls playsinline preload="metadata" aria-label="ريل مجسّم VYLO"></video><figcaption><b>المجسّم الشخصي من VYLO</b><p id="video-fallback" hidden>تقدر تشوف الفيديو من الرابط.</p><a href="https://www.facebook.com/reel/1166394445813052/" target="_blank" rel="noopener noreferrer">افتح الريل على فيسبوك ↗</a></figcaption></figure>
+</div></section>
+<section class="section how"><div class="container"><div class="center-heading"><p class="eyebrow purple">طريقة الطلب</p><h2>من صورتك لحد باب البيت.</h2></div><div class="steps">
+<article><span class="step-number">1</span><h3>سجّل طلبك</h3><p>اكتب اسم صاحب المجسّم وبيانات التوصيل.</p></article>
+<article><span class="step-number">2</span><h3>ابعت الصورة على واتساب</h3><p>هتلاقي رسالة جاهزة ببيانات الطلب. ابعت معاها الصورة وتفاصيل الفكرة.</p></article>
+<article><span class="step-number">3</span><h3>استلم مجسّمك</h3><p>بعد مراجعة التفاصيل بنجهّز المجسّم ونشحنه لعنوانك.</p></article>
+</div></div></section>
+<section class="section packages" id="packages"><div class="container"><div class="center-heading"><p class="eyebrow">مجسّم شخصي حسب الطلب</p><h2>اطلب مجسّمك من <span>VYLO.</span></h2></div>
+<div class="package-grid"><article class="package-card gift"><h3>مجسّم VYLO مخصص</h3><div class="price">699 <small>جنيه</small></div><ul><li>الشحن لكل المحافظات 70 جنيه</li><li>الإجمالي بالشحن 769 جنيه</li></ul><a class="button yellow" href="#order">اطلب المجسّم ↙</a></article></div>
+</div></section>
+<section class="section order-section" id="order"><div class="container order-layout"><div class="order-intro"><p class="eyebrow purple">طلب مجسّم شخصي</p><h2>مجسّم بتفاصيل <span>تخصّك.</span></h2><p>سجّل بيانات الطلب، وبعدها ابعت الصورة والفكرة على واتساب.</p><div class="deposit-note"><span aria-hidden="true">✦</span><div><b>ديبوزيت 100 جنيه</b><p>بعد التواصل على واتساب، وبيتخصم من إجمالي الحساب.</p></div></div><p class="privacy-note">بياناتك بتوصل لفريق VYLO لتجهيز الطلب والتوصيل. ابعت الصورة بنفسك على واتساب.</p></div>
+    <form id="order-form" class="order-form">
+        <div class="form-title"><span>01 /</span><h3>تفاصيل المجسّم</h3></div>
+        <fieldset class="form-packages"><legend class="sr-only">المنتج</legend><label><input type="radio" name="packageId" value="figurine" checked><span><b>مجسّم VYLO مخصص</b><small>699 جنيه</small></span></label></fieldset>
+        <div class="form-title"><span>02 /</span><h3>بيانات الحكاية</h3></div>
+        <div class="fields-grid"><div class="field"><label for="parent-name">اسم مقدم الطلب <span>*</span></label><input id="parent-name" name="parentName" autocomplete="name" required minlength="2" maxlength="80" placeholder="اكتب اسمك بالكامل"></div><div class="field"><label for="phone">رقم التليفون <span>*</span></label><input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" required maxlength="20" placeholder="01xxxxxxxxx" dir="ltr"><small>رقم مصري نقدر نتواصل معاك عليه</small></div></div>
+        <div id="children-fields" class="children-fields"><div class="field"><label for="child-0">اسم صاحب المجسّم <span>*</span></label><input id="child-0" name="child0" required minlength="2" maxlength="50" placeholder="اسم صاحب المجسّم"></div></div>
+        <div class="fields-grid"><div class="field"><label for="governorate">المحافظة <span>*</span></label><select id="governorate" name="governorate" autocomplete="address-level1" required><option value="">اختار المحافظة</option></select></div><div class="field"><label for="address">العنوان بالتفصيل <span>*</span></label><input id="address" name="address" autocomplete="street-address" required minlength="10" maxlength="300" placeholder="المنطقة، الشارع، العمارة، الدور والشقة"></div></div>
+        <div class="field"><label for="notes">ملاحظات إضافية <small>(اختياري)</small></label><textarea id="notes" name="notes" rows="2" maxlength="400" placeholder="أي تفاصيل تحب نعرفها عن طلبك"></textarea></div>
+        <div class="honeypot" aria-hidden="true"><label for="website">Website</label><input id="website" name="website" tabindex="-1" autocomplete="off"></div>
+        <div class="summary" aria-live="polite"><h3>حساب الطلب</h3><div><span id="summary-name">مجسّم VYLO مخصص</span><b id="summary-price">699 جنيه</b></div><div><span>الشحن لأي محافظة</span><b>70 جنيه</b></div><div class="summary-total"><span>الإجمالي</span><strong id="summary-total">769 <small>جنيه</small></strong></div><div class="summary-deposit"><span>ديبوزيت بعد التواصل</span><b>100 جنيه</b></div><div><span>الباقي بعد دفع الديبوزيت</span><b id="summary-remaining">669 جنيه</b></div></div>
+        <p class="form-next">بعد تسجيل الطلب بنحوّلك لواتساب لإرسال الصور وتنسيق تحويل الديبوزيت. مفيش دفع أونلاين هنا.</p>
+        <p id="form-status" class="form-status" role="status" aria-live="polite" tabindex="-1"></p>
+        <button class="button submit-button" type="submit" id="submit-button"><span>سجّل الطلب وكمّل على واتساب</span><span aria-hidden="true">↙</span></button>
+        <div id="order-success" hidden><p>استلمنا طلبك! اضغط لو واتساب ما فتحش تلقائيًا.</p><a id="continue-whatsapp" class="button whatsapp-button" href="https://wa.me/201270366874">كمّل طلبك على واتساب ↗</a><button id="new-order" type="button" class="new-order">تسجيل طلب جديد</button></div>
+        <small class="form-footnote">بالضغط على الزر، بتوافق على استخدام بياناتك لإتمام الطلب والتواصل معاك.</small>
+      </form>
+    </div></section>
+
+    <section class="section faq"><div class="container faq-layout"><div><p class="eyebrow purple">أسئلة قبل الطلب</p><h2>في بالك سؤال؟</h2><a class="text-link purple" href="https://wa.me/201270366874">كلّمنا على واتساب ↗</a></div><div class="faq-list">
+<details><summary>إزاي أبعت صورة صاحب المجسّم؟</summary><p>بعد التسجيل، واتساب هيفتح برسالة فيها ملخص طلبك. ابعت معاها صورة واضحة وفكرة المجسّم.</p></details>
+<details><summary>ممكن أطلبه هدية؟</summary><p>أيوه، اكتب اسم صاحب الهدية في خانة اسم صاحب المجسّم، واكتب بياناتك للتواصل والتوصيل.</p></details>
+<details><summary>تكلفة الشحن وميعاد الاستلام؟</summary><p>الشحن 70 جنيه لأي محافظة. فريق VYLO هيأكد معاك ميعاد التجهيز والتوصيل على واتساب.</p></details>
+</div></div></section>
+<section class="last-cta"><div class="container"><h2>خلّي حلمك قدام عينك.</h2><a class="button yellow" href="#order">اطلب مجسّمك ↙</a></div></section>
+</main>
+  <footer><div class="container footer-row"><a class="brand" href="#"><img src="assets/logo.jpg" width="45" height="45" alt="VYLO"><span><b dir="ltr">VYLO</b><small dir="ltr">YOUR STORY. YOUR WORLD.</small></span></a><p>الإسكندرية، مصر · حكايات تتلوّن بالحب.</p><div><a href="https://www.facebook.com/people/VYLO/61596390743241/" target="_blank" rel="noopener noreferrer">فيسبوك ↗</a><a href="https://wa.me/201270366874" target="_blank" rel="noopener noreferrer">واتساب ↗</a></div></div><div class="container copyright">© <span id="year">2026</span> VYLO. جميع الحقوق محفوظة.</div></footer>
+  <a class="floating-whatsapp" href="https://wa.me/201270366874" target="_blank" rel="noopener noreferrer" aria-label="تواصل مع VYLO على واتساب"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 .8A15 15 0 0 0 3.1 23.5L1 31l7.7-2A15.1 15.1 0 1 0 16 .8Zm0 27.5c-2.2 0-4.3-.6-6.2-1.7l-.5-.3-4.6 1.2L6 23l-.3-.5A12.5 12.5 0 1 1 16 28.3Zm6.9-9.3c-.4-.2-2.2-1.1-2.6-1.2-.3-.1-.6-.2-.8.2-.3.4-1 1.2-1.2 1.4-.2.2-.4.3-.8.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8l.6-.7c.2-.2.2-.4.4-.6.1-.3 0-.5 0-.7l-1.2-2.8c-.3-.7-.6-.6-.9-.6h-.8c-.3 0-.7.1-1 .5-.4.4-1.3 1.3-1.3 3.1s1.4 3.6 1.6 3.9c.2.2 2.7 4.1 6.6 5.8.9.4 1.6.6 2.2.8.9.3 1.7.2 2.3.1.7-.1 2.2-.9 2.5-1.8.3-.9.3-1.7.2-1.8-.1-.2-.4-.3-.8-.4Z"/></svg></a>
+  <div class="mobile-bar"><span>مجسّم VYLO <b>699 جنيه</b></span><a class="button small" href="#order">اطلب مجسّمك ↙</a></div>
+</body>
+</html>
