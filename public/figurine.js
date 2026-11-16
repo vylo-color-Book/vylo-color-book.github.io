@@ -1,7 +1,29 @@
 import { submitSheetOrder } from './bridge.js';
 import { SHIPPING, DEPOSIT, GOVERNORATES, normalizePhone } from './catalog.js?v=4';
 
-const PACKAGES = {figurine: {label: 'مجسّم VYLO مخصص', price: 699, children: ['اسم صاحب المجسّم']}};
+const PACKAGES = {
+  "figurine_small": {
+    "label": "مجسّم VYLO — صغير (20 سم)",
+    "price": 390,
+    "children": [
+      "اسم صاحب المجسّم"
+    ]
+  },
+  "figurine_medium": {
+    "label": "مجسّم VYLO — وسط (30 سم)",
+    "price": 550,
+    "children": [
+      "اسم صاحب المجسّم"
+    ]
+  },
+  "figurine_large": {
+    "label": "مجسّم VYLO — كبير (40 سم)",
+    "price": 690,
+    "children": [
+      "اسم صاحب المجسّم"
+    ]
+  }
+};
 const form = document.querySelector('#order-form');
 const status = document.querySelector('#form-status');
 const submit = document.querySelector('#submit-button');
